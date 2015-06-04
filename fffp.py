@@ -24,6 +24,8 @@ import requests # Library for sending http requests.
 import os 
 import sys 
 
+# Change these values to your own.
+
 a_topic = 'insert topic url to subscribe to here'
 a_callback = 'insert webhook url pointing to this script.'
 a_mode = 'subscribe'
