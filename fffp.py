@@ -17,17 +17,18 @@
 #
 # This is a pubsubhubbub subscriber that subscribes to and handles a youtube 
 # channel subscription via the youtube API v.3 
+print('Content-type: text/html\n') # So print actually prints to the webpage. w
 
 import requests # Library for sending http requests. 
 # imported to get raw data from GET requests. 
 import os 
-# import sys 
+import sys 
 
 # First, we send a subscription request to googles subscriber...
 
-payload = {'hub.callback': 'http://static.darknedgy.net:8181/ffwebhook/', 
+payload = {'hub.callback': 'insert-your-webhook-url', 
 'hub.mode': 'subscribe', 'hub.verify': 'sync', 'hub.topic': 
-'https://www.youtube.com/xml/feeds/videos.xml?channel_id=UCkitABalXafr-NqceQdDXtg'}
+'insert-topic-to-subscribe-to-here'}
 
 returned = requests.post("https://pubsubhubbub.appspot.com/", data=payload)
 
@@ -47,7 +48,7 @@ QString = os.getenv("QUERY_STRING")
 Qdict = dict(item.split("=") for item in QString.split("&"))
 
 plzCheckTopic = Qdict['hub.topic'];
-if (plzCheckTopic == 'https://www.youtube.com/xml/feeds/videos.xml?channel_id=UCkitABalXafr-NqceQdDXtg'):
+if (plzCheckTopic == 'insert-topic-to-subscribe-to'):
     print(Qdict["hub.challenge"]) 
     print("204")
 else:
