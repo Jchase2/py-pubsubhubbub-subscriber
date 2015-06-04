@@ -20,17 +20,23 @@
 print('Content-type: text/html\n') # So print actually prints to the webpage. w
 
 import requests # Library for sending http requests. 
-# imported to get raw data from GET requests. 
+# imported to get raw data from GET and POST requests. 
 import os 
 import sys 
 
+a_topic = 'insert topic url to subscribe to here'
+a_callback = 'insert webhook url pointing to this script.'
+a_mode = 'subscribe'
+a_verify = 'sync'
+a_hub = 'https://pubsubhubbub.appspot.com/'
+
 # First, we send a subscription request to googles subscriber...
 
-payload = {'hub.callback': 'insert-your-webhook-url', 
-'hub.mode': 'subscribe', 'hub.verify': 'sync', 'hub.topic': 
-'insert-topic-to-subscribe-to-here'}
+payload = {'hub.callback': a_callback, 
+'hub.mode': a_mode, 'hub.verify': a_verify, 'hub.topic': 
+a_topic}
 
-returned = requests.post("https://pubsubhubbub.appspot.com/", data=payload)
+returned = requests.post(a_hub, data=payload)
 
 # Check to make sure the hub responds with 204 or 202 (verified or accepted)
 
@@ -50,7 +56,7 @@ QString = os.getenv("QUERY_STRING")
 Qdict = dict(item.split("=") for item in QString.split("&"))
 
 plzCheckTopic = Qdict['hub.topic'];
-if (plzCheckTopic == 'insert-topic-to-subscribe-to'):
+if (plzCheckTopic == a_topic):
     print(Qdict["hub.challenge"]) 
     print("204")
 else:
