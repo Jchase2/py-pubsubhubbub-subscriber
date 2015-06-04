@@ -5,6 +5,7 @@ broken and so what I was going to use it for is no longer an option.
 
 See: 
 https://code.google.com/p/gdata-issues/issues/detail?id=7138
+and
 https://code.google.com/p/gdata-issues/issues/detail?id=5602
 
 
