@@ -1,3 +1,4 @@
+#!/usr/local/bin/python
 # Copyright 2015 JChase II
 #
 # This program is free software: you can redistribute it and/or modify

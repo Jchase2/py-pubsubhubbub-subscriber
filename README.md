@@ -19,16 +19,18 @@ Maybe someone else can get some use out of it... It's a very rough draft.
 
 Create a directory where server.py will be stored, and inside of that
 another directory where the web-facing fffp.py script will be stored. 
-Edit server.py such that the cgi_directorie line points to the directory
+Edit server.py such that the cgi_directories line points to the directory
 with fffp.py.
 
 Change the variables at the top of fffp.py to reflect your needs.
-Make sure you have requests installed in python. Easily done with 
+Also check the shebang line (the first line in the file) to make 
+sure it reflects the actual location of your python installation. 
+Also, make sure you have requests installed in python. Easily done with 
 
     pip install requests
     
 
-Navigate to your "callback" url, which is just the url of the fffp.py script.
+Run server.py, then navigate to your "callback" url, which is just the url of the fffp.py script.
 
 Check output in terminal and on the page...  
 
