@@ -36,7 +36,9 @@ returned = requests.post("https://pubsubhubbub.appspot.com/", data=payload)
 
 if returned != 204 or 202: 
     print ("Hub did not return 204 or 202")
-    exit()
+    print("Status code is: ",returned.status_code)
+    print("Text Value: ", returned.text)
+    sys.exit('Error!')
 
 # Next, the hub needs to verify we sent a subscription request. 
 # It'll send a GET request to the webhook including details of the 
@@ -52,7 +54,7 @@ if (plzCheckTopic == 'insert-topic-to-subscribe-to'):
     print(Qdict["hub.challenge"]) 
     print("204")
 else:
-    print(404)
+    print("404")
 
 
 
